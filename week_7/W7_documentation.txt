@@ -1,1 +1,16 @@
+======================================================================
+WEEK 7 - TUTORIAL DOCUMENTATION
+======================================================================
 
+1. BUGS IDENTIFIED IN ORIGINAL MAIN.PY:
+---------------------------------------
+- Missing Import: The script tried to use a total calculation workflow without importing the core business logic function from 'food_order.py'.
+- Missing Input Validation: The code did not prevent negative numbers or zero from being used as valid prices or quantities, leading to invalid orders.
+- Missing Error Handling (Crash Vulnerability): Using float(input()) and int(input()) directly without a try-except block causes the system to crash completely with a ValueError if a user inputs alphabetical text instead of numbers.
+
+2. FIXES IMPLEMENTED:
+--------------------
+- Added 'from food_order import calculate_total' to main.py.
+- Implemented range validation checks (<= 0) inside food_order.py to return appropriate error strings ("invalid price", "invalid quantity").
+- Added a try-except block in main.py to handle invalid string inputs gracefully instead of crashing the program.
+- Wrote robust unit tests using pytest to verify system functionality and validation correctness.
